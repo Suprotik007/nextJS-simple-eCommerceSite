@@ -12,7 +12,7 @@ export default function PopularProducts() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://nextjs-practice-project-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         const sorted = data.sort((a, b) => a.price - b.price).slice(0, 4);

@@ -4,8 +4,8 @@ export default async function ProductDetails({ params }) {
   const { id } = params;
 
   // Fetch product from backend API
-  const res = await fetch(`http://localhost:5000/products/${id}`, {
-    cache: "no-store" // ensures fresh data each request
+  const res = await fetch(`https://nextjs-practice-project-server.vercel.app/products/${id}`, {
+    cache: "no-store" 
   });
 
   if (!res.ok) return <p className="text-center mt-10">Product not found</p>;
