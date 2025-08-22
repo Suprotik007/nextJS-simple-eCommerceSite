@@ -1,22 +1,18 @@
+import React, { use } from "react";
 
-import React from "react";
+export default function ProductDetails({ params }) {
+  const { id } = use(params); // unwrap params Promise
 
-export default async function ProductDetails({ params }) {
-  const { id } = params;
-
-  
-  const res = await fetch(`http://localhost:5000/products/${id}`, {
-    cache: "no-store" 
+  // Fetch product data Promise
+  const productPromise = fetch(`http://localhost:5000/products/${id}`, {
+    cache: "no-store",
+  }).then((res) => {
+    if (!res.ok) throw new Error("Product not found");
+    return res.json();
   });
 
-  if (!res.ok)
-    return (
-      <p className="text-center mt-10 text-red-500 font-semibold text-lg">
-        Product not found
-      </p>
-    );
-
-  const product = await res.json();
+  // Unwrap product data Promise
+  const product = use(productPromise);
 
   return (
     <div className="w-10/12 mx-auto px-6 py-12 bg-white dark:bg-gray-900 rounded-lg shadow-md transition-shadow hover:shadow-xl">
@@ -56,11 +52,9 @@ export default async function ProductDetails({ params }) {
         </p>
       </div>
 
-    
       <button
         type="button"
         className="bg-violet-600 text-white py-3 px-6 rounded-lg font-semibold text-lg shadow-md hover:bg-violet-700 transition-colors w-full sm:w-auto"
-    
       >
         Buy Now
       </button>
