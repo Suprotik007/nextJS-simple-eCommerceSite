@@ -1,4 +1,4 @@
-
+'use client'
 import AddProduct from '@/Components/AddProduct';
 import React from 'react';
 

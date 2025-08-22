@@ -1,4 +1,4 @@
-
+'use client'
 import Hero from '@/Components/Hero';
 
 import TopProducts from '@/Components/LatestProducts';

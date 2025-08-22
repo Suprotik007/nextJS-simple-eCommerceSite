@@ -1,9 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-
+import Providers from "./Provider";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +22,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="w-11/12 mx-auto space-y-5 ">
-        <Navbar />
-        {children} 
-        <Footer />
+      <body className="w-11/12 mx-auto space-y-5">
+        <Providers>
+          <Navbar /> {/* NOW inside SessionProvider */}
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
-  )
+  );
 }
-

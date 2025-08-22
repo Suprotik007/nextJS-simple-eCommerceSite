@@ -3,6 +3,7 @@
 import Sidebar from '@/Elements/Sidebar';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import GoogleAuthButton from './Login';
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -40,9 +41,7 @@ const Navbar = () => {
           <nav className="hidden lg:flex">{links}</nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <button className="px-6 py-2 font-semibold rounded-lg bg-violet-600 text-white hover:bg-violet-700 dark:bg-violet-400 dark:text-gray-900 dark:hover:bg-violet-500 transition">
-              Log In
-            </button>
+           <GoogleAuthButton></GoogleAuthButton>
           </div>
 
           {/* Mobile menu button */}

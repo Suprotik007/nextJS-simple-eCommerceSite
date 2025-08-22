@@ -1,4 +1,4 @@
-
+'use client'
 import ProductsPage from '@/pages/ProductsPage';
 import React from 'react';
 
