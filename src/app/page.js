@@ -1,7 +1,7 @@
 
 import Hero from '@/Components/Hero';
 
-import TopProducts from '@/Components/TopProducts';
+import TopProducts from '@/Components/LatestProducts';
 import React from 'react';
 
 const Home = () => {
