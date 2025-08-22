@@ -1,11 +1,18 @@
-import Image from "next/image";
 
-export default function Home() {
-  return (
-   
-  <div>
-    <h1 className="text-3xl font-bold underline">Hello</h1>
-  </div>
+import Hero from '@/Components/Hero';
 
-  );
-}
+import TopProducts from '@/Components/TopProducts';
+import React from 'react';
+
+const Home = () => {
+    return (
+        <div >
+            
+            <Hero></Hero>
+            <TopProducts></TopProducts>
+           
+        </div>
+    );
+};
+
+export default Home;

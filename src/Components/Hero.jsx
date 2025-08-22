@@ -14,7 +14,7 @@ const Hero = () => {
           
           <p className="text-center lg:text-left text-lg font-medium space-x-2">
             <span>Plus free shipping! Use code:</span>
-            <span className="font-bold text-yellow-300">MAMBA</span>
+            <span className="font-bold text-yellow-300">MAGIC50</span>
           </p>
 
           <a
