@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function ProductsPage() {
@@ -39,8 +40,11 @@ export default function ProductsPage() {
             </h2>
             <p className="text-violet-400 font-semibold mb-2">💰 Price: ${p.price}</p>
             <p className="text-gray-700 dark:text-gray-300 mb-3">{p.description}</p>
-            <button className=" bg-violet-600 text-white py-1 px-2 rounded hover:bg-violet-700 transition-colors">
-              Details</button>
+         <Link href={`/details/${p._id}`}>
+  <button className="bg-violet-600 text-white py-1 px-2 rounded hover:bg-violet-700 transition-colors">
+    Details
+  </button>
+</Link>
           </li>
         ))}
       </ul>
