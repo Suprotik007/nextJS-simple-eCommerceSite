@@ -8,7 +8,7 @@ export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://nextjs-practice-project-server.vercel.app/products") // your backend route
+    fetch("https://nextjs-practice-project-server.vercel.app/products") 
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
