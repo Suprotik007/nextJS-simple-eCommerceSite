@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Here is a sample README template tailored to your Next.js simple e-commerce project:
 
-## Getting Started
+***
 
-First, run the development server:
+# Next.js Simple E-Commerce Site
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Description
+This is a full-stack e-commerce web application built with Next.js 15. It features a storefront displaying products fetched from a MongoDB backend API, user authentication via NextAuth.js with Google OAuth, and a product details page. The backend is deployed separately (e.g., on Vercel), and the frontend is a Next.js app deployed on Vercel as well.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+***
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Setup and Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
+- Node.js and npm installed
+- MongoDB database (deployed and accessible)
+- Google OAuth credentials (Client ID and Secret)
+- Vercel account for deployment
 
-## Learn More
+### Local Setup
+1. Clone the repository  
+   ```
+   git clone https://github.com/Suprotik007/nextjs-simple-ecommerce.git
+   cd nextjs-simple-ecommerce
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies  
+   ```
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Create a `.env.local` file in project root with:  
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_SECRET=your_generated_secret
+   GOOGLE_CLIENT_ID=your_google_client_id
+   GOOGLE_CLIENT_SECRET=your_google_client_secret
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Run the development server:  
+   ```
+   npm run dev
+   ```
+   The site will be available at [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+***
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Backend deployment on [Vercel or your chosen platform] with `MONGODB_URI` environment variable set.
+- Frontend deployment on [Vercel](https://vercel.com/) with following environment variables set in Project Settings:
+  ```
+  NEXTAUTH_URL=https://your-vercel-project.vercel.app
+  NEXTAUTH_SECRET=your_generated_secret
+  GOOGLE_CLIENT_ID=your_google_client_id
+  GOOGLE_CLIENT_SECRET=your_google_client_secret
+  ```
+
+- Make sure that in Google Cloud Console, Authorized Redirect URIs include your deployed app URL with `/api/auth/callback/google`.
+
+***
+
+## Route Summary
+
+| Route                     | Description                              |
+|---------------------------|------------------------------------------|
+| `/`                       | Homepage displaying product list          |
+| `/products`               | List all available products               |
+| `/products/[id]`          | Product details page                       |
+| `/api/auth/[...nextauth]` | NextAuth authentication API routes        |
+| `/api/products`           | Backend API to get all products            |
+| `/api/products/[id]`      | Backend API to get a specific product by ID |
+
+***
+
+## Features
+- Server-side rendering (SSR) and server components in Next.js 15
+- Authentication with Google OAuth and NextAuth.js
+- MongoDB backend API for products
+- Responsive design with Tailwind CSS
+- Error handling for fetching and auth
+
+***
